@@ -6,6 +6,10 @@ librerias de pandas para resolver las preguntas.
 """
 
 
+import pandas as pd
+
+DATA_DIR = "files/input/"
+
 def pregunta_04():
     """
     Calcule el promedio de `c2` por cada letra de la `c1` del archivo
@@ -20,3 +24,5 @@ def pregunta_04():
     E    4.785714
     Name: c2, dtype: float64
     """
+    df = pd.read_csv(DATA_DIR + "tbl0.tsv", sep="\t")
+    return df.groupby("c1")["c2"].mean()
